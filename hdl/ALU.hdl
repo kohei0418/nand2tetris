@@ -55,9 +55,6 @@ CHIP ALU {
     Not16(in=xpy, out=nxpy);
     Not16(in=xay, out=nxay);
 
-    Mux4Way16(a=xay, b=xpy, c=nxay, d=nxpy, sel[0]=f, sel[1]=no, out=res, out[15]=ng);
+    Mux4Way16(a=xay, b=xpy, c=nxay, d=nxpy, sel[0]=f, sel[1]=no, out=res, out[15]=ng, out=out);
     IsZero16(in=res, out=zr);
-
-    // NOP
-    Mux16(a=res, b=false, sel=false, out=out);
 }
